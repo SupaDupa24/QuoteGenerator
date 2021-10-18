@@ -17,32 +17,44 @@ function removeLoading() {
     }
 }
 
+let apiQuotes = [];
+
+// Shhow new quote
+function newQuote() {
+    // Pick a random quote from 
+   const quote = apiQuotes[Math.floor(Math.random()*apiQuotes.length)];
+    if (!quote.author) {
+        authorText.textContent = 'Unkown';
+    } else {
+        authorText.textContent = quote.author;
+    }
+
+    if (quote.text.lenth > 50) {
+        quoteText.classList.add('long-quote');
+    } else {
+        quoteText.classList.remove('long-quote');
+    }
+    quoteText.textContent = quote.text;
+}
+
 // Get Quote from API
 async function getQuote() {
     showLoading();
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-    const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
+    // const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
+    const apiUrl = 'https://type.fit/api/quotes/';
     try {
-        const response = await fetch(proxyUrl + apiUrl);
-        const data = await response.json();
-        //If author is blank, add 'Unknown'
-        if (data.quoteAuthor === '') {
-            authorText.innerText = 'Unknown'
-        } else {
-            authorText.innerText = data.quoteAuthor;
-        }
-        //Reduce font size for long quote
-        if (data.quoteText.length > 120) {
-            quoteText.classList.add('long-quote');
-        } else {
-            quoteText.classList.remove('long-quote');
-        }
-         quoteText.innerText = data.quoteText;
-         removeLoading();
+        const response = await fetch(apiUrl);
+        apiQuotes = await response.json();
+        newQuote();
+       
+        
+        removeLoading();
     } catch (error) {
+        console.log(error);
         getQuote();
     }
 }
+
 
 function tweetQuote() {
     const quote = quoteText.innerText;
