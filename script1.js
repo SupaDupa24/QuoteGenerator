@@ -18,28 +18,28 @@ function removeLoading() {
     }
 }
 
-let apiQuotes = [];
+// let apiQuotes = [];
 
 // Shhow new quote
-function newQuote() {
-    // Pick a random quote from 
-   const quote = apiQuotes[Math.floor(Math.random()*apiQuotes.length)];
-    if (!quote.author) {
-        authorText.textContent = 'Unkown';
-    } else {
-        authorText.textContent = quote.author;
-    }
+// function newQuote() {
+//     // Pick a random quote from 
+//    const quote = apiQuotes[Math.floor(Math.random()*apiQuotes.length)];
+//     if (!quote.author) {
+//         authorText.textContent = 'Unkown';
+//     } else {
+//         authorText.textContent = quote.author;
+//     }
 
-    if (quote.text.lenth > 50) {
-        quoteText.classList.add('long-quote');
-    } else {
-        quoteText.classList.remove('long-quote');
-    }
-    quoteText.textContent = quote.text;
-}
+//     if (quote.text.lenth > 50) {
+//         quoteText.classList.add('long-quote');
+//     } else {
+//         quoteText.classList.remove('long-quote');
+//     }
+//     quoteText.textContent = quote.text;
+// }
 
 // Get Quote from API
-async function getQuote() {
+/*async function getQuote() {
     showLoading();
     // const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
     const apiUrl = 'https://type.fit/api/quotes/';
@@ -55,7 +55,7 @@ async function getQuote() {
         getQuote();
     }
 }
-
+*/
 
 function tweetQuote() {
     const quote = quoteText.innerText;

@@ -1,4 +1,4 @@
-localQuotes = {
+localQuotes = [
 
 {
     "text": "Genius is one percent inspiration and ninety-nine percent perspiration.",
@@ -93,8 +93,8 @@ localQuotes = {
     "author": "Napoleon Hill"
   },
   {
-    "text": "Everything in life is luck.",
-    "author": "Donald Trump"
+    "text": "Never forget how beautiful you are and that I will always love you.",
+    "author": "DeQuan Sanders"
   },
   {
     "text": "Doing nothing is better than being busy doing nothing.",
@@ -6572,4 +6572,4 @@ localQuotes = {
     "text": "Sometimes the cards we are dealt are not always fair. However you must keep smiling and moving on.",
     "author": "Tom Jackson"
   }
-}
+]
